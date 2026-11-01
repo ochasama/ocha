@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Ocha">
+<meta name="apple-mobile-web-app-title" content="Umacha">
 <meta name="theme-color" content="#f3ecdc">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="icon" type="image/png" href="icon-192.png">
-<title>Ocha Log</title>
+<title>Umacha</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -135,7 +135,7 @@ nav button.on b{color:var(--shu)}
 <div class="wrap">
   <header>
     <div class="logo">茶</div>
-    <div><h1>Ocha Log<small>コンビニ茶 · TEE-TAGEBUCH</small></h1></div>
+    <div><h1>Umacha<small>コンビニ茶 · TEE-TAGEBUCH</small></h1></div>
   </header>
   <main id="app"></main>
   <div class="status" id="status"></div>
@@ -191,9 +191,9 @@ async function deleteTea(id){teas=teas.filter(x=>x.id!==id); lsSave();}
 // ---------- Backup ----------
 async function exportBackup(){
   const json=JSON.stringify({app:"ocha-log",v:1,exported:new Date().toISOString(),teas},null,1);
-  const name=`ocha-backup-${today()}.json`;
+  const name=`umacha-backup-${today()}.json`;
   const file=new File([json],name,{type:"application/json"});
-  try{ if(navigator.canShare&&navigator.canShare({files:[file]})){ await navigator.share({files:[file],title:"Ocha Log Backup"}); return; } }catch(e){ if(e&&e.name==="AbortError")return; }
+  try{ if(navigator.canShare&&navigator.canShare({files:[file]})){ await navigator.share({files:[file],title:"Umacha Backup"}); return; } }catch(e){ if(e&&e.name==="AbortError")return; }
   const a=document.createElement("a");a.href=URL.createObjectURL(file);a.download=name;document.body.appendChild(a);a.click();a.remove();
 }
 function importBackup(file){

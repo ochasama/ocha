@@ -1,6 +1,6 @@
 {
-  "name": "Ocha Log – Tee-Tagebuch",
-  "short_name": "Ocha",
+  "name": "Umacha – 旨茶",
+  "short_name": "Umacha",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
