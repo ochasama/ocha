@@ -4,151 +4,209 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Umacha">
-<meta name="theme-color" content="#f3ecdc">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Umacha">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0d0f0c">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="icon" type="image/png" href="icon-192.png">
 <title>Umacha</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --washi:#f3ecdc; --washi2:#ebe2cc; --card:#fbf7ee; --ink:#2a2823; --ink2:#6b655a; --line:#d9cfb8;
-  --matcha:#6f8f45; --matcha-d:#3e5530; --matcha-l:#dfe8cc; --shu:#c4432c; --gold:#b8913a;
+  --bg:#0d0f0c; --bg2:#141812; --card:#191e17; --card2:#21281e; --line:#2c3528;
+  --tx:#f3f7ee; --tx2:#93a08b; --lime:#a6ff4d; --lime2:#1fbf6a; --red:#ff4d5e; --gold:#ffd23f;
+  --grad:linear-gradient(135deg,#b6ff5c,#1fbf6a);
   --safe-t:env(safe-area-inset-top,0px); --safe-b:env(safe-area-inset-bottom,0px);
+  --disp:"Dela Gothic One","Zen Kaku Gothic New",system-ui,sans-serif;
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{margin:0;background:var(--washi);color:var(--ink);font-family:"Zen Maru Gothic",system-ui,sans-serif;font-size:16px}
-body{
-  min-height:100vh;
-  background-image:
-    radial-gradient(circle at 20% 10%, rgba(111,143,69,.08), transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(196,67,44,.06), transparent 40%),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 .4 0 0 0 0 .35 0 0 0 0 .25 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-.wrap{max-width:560px;margin:0 auto;padding:calc(var(--safe-t) + 14px) 16px calc(var(--safe-b) + 100px)}
-header{display:flex;align-items:center;gap:12px;margin-bottom:6px}
-.logo{width:46px;height:46px;border-radius:50%;background:var(--matcha-d);color:var(--washi);display:grid;place-items:center;font-family:"Shippori Mincho",serif;font-weight:800;font-size:24px;box-shadow:inset 0 0 0 3px var(--washi),0 0 0 2px var(--matcha-d)}
-h1{font-family:"Shippori Mincho",serif;font-size:24px;margin:0;line-height:1.1}
-h1 small{display:block;font-family:"Zen Maru Gothic";font-size:12px;font-weight:500;color:var(--ink2);letter-spacing:.08em}
-.sub{color:var(--ink2);font-size:13px}
-h2{font-family:"Shippori Mincho",serif;font-size:20px;margin:22px 0 10px;display:flex;align-items:baseline;gap:10px}
-h2 .jp{color:var(--shu);font-size:15px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:0 2px 0 var(--washi2)}
-.field{margin-bottom:18px}
-.label{font-size:13px;font-weight:700;color:var(--matcha-d);margin-bottom:8px;letter-spacing:.04em;display:flex;justify-content:space-between}
-.label span{font-weight:400;color:var(--ink2)}
+html,body{margin:0;background:var(--bg);color:var(--tx);font-family:"Zen Kaku Gothic New",system-ui,sans-serif;font-weight:500;font-size:16px;-webkit-font-smoothing:antialiased}
+body{min-height:100vh;background:
+  radial-gradient(600px 300px at 110% -5%, rgba(166,255,77,.16), transparent 70%),
+  radial-gradient(500px 300px at -20% 30%, rgba(31,191,106,.10), transparent 70%), var(--bg)}
+button{font:inherit;color:inherit}
+.wrap{max-width:560px;margin:0 auto;padding:calc(var(--safe-t) + 14px) 16px calc(var(--safe-b) + 110px)}
+/* header */
+header{display:flex;align-items:center;gap:12px;margin-bottom:4px}
+header .ava{width:52px;height:52px;border-radius:16px;background:var(--grad);flex-shrink:0;overflow:hidden;box-shadow:0 6px 20px rgba(166,255,77,.25)}
+header .ava svg{width:100%;height:100%}
+.brand{font-family:var(--disp);font-size:30px;letter-spacing:.01em;line-height:1}
+.brand em{font-style:normal;color:var(--lime)}
+.tagline{font-size:12px;color:var(--tx2);font-weight:700;letter-spacing:.12em;margin-top:4px}
+h2{font-family:var(--disp);font-weight:400;font-size:26px;margin:26px 0 12px;line-height:1.05;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+h2 .jp{font-size:14px;color:var(--lime);font-family:"Zen Kaku Gothic New";font-weight:900;letter-spacing:.1em}
+h3{font-family:var(--disp);font-weight:400;font-size:18px;margin:26px 0 10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:16px}
+.sub{color:var(--tx2);font-size:13px;line-height:1.5}
+/* form */
+.field{margin-bottom:22px}
+.label{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+.label b{font-family:var(--disp);font-weight:400;font-size:16px}
+.label span{font-size:11px;color:var(--tx2);font-weight:700;letter-spacing:.12em}
 .chips{display:flex;flex-wrap:wrap;gap:7px}
-.chip{border:1.5px solid var(--line);background:#fff8;border-radius:999px;padding:7px 12px;font:inherit;font-size:14px;color:var(--ink);cursor:pointer;transition:.15s}
-.chip .k{font-family:"Shippori Mincho";color:var(--ink2);font-size:12px;margin-left:4px}
-.chip.on{background:var(--matcha-d);border-color:var(--matcha-d);color:var(--washi)}
-.chip.on .k{color:var(--matcha-l)}
-.chip:active{transform:scale(.95)}
-input[type=text],input[type=number],textarea{width:100%;font:inherit;border:1.5px solid var(--line);border-radius:12px;padding:11px 12px;background:#fffc;color:var(--ink);outline:none}
-input:focus,textarea:focus{border-color:var(--matcha)}
-textarea{min-height:64px;resize:vertical}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-/* cups */
-.cups{display:flex;gap:4px;align-items:center;user-select:none;touch-action:none}
-.cup{position:relative;width:46px;height:46px}
-.cup svg{position:absolute;inset:0;width:100%;height:100%}
-.cup .fill{clip-path:inset(0 100% 0 0);transition:clip-path .15s}
-.score{font-family:"Shippori Mincho";font-size:30px;font-weight:800;margin-left:8px;min-width:54px}
-.verdict{font-size:13px;color:var(--ink2);margin-top:6px;min-height:18px}
-.btn{display:block;width:100%;border:0;border-radius:14px;padding:15px;font:inherit;font-weight:700;font-size:17px;background:var(--matcha-d);color:var(--washi);cursor:pointer;box-shadow:0 3px 0 #2a3a20}
-.btn:active{transform:translateY(2px);box-shadow:0 1px 0 #2a3a20}
-.btn.ghost{background:transparent;color:var(--ink2);box-shadow:none;border:1.5px solid var(--line);font-weight:500;font-size:15px;padding:11px;margin-top:8px}
-.btn.danger{background:transparent;color:var(--shu);border:1.5px solid #e4b6ab;box-shadow:none;font-size:15px;padding:11px;margin-top:8px}
-/* list */
-.entry{display:flex;gap:12px;align-items:center;padding:12px;border-radius:14px;background:var(--card);border:1px solid var(--line);margin-bottom:9px;cursor:pointer;position:relative}
-.rank{font-family:"Shippori Mincho";font-weight:800;font-size:20px;width:30px;text-align:center;color:var(--ink2)}
-.rank.r1{color:var(--gold)}.rank.r2{color:#8a8a8a}.rank.r3{color:#a0643a}
+.chip{border:1.5px solid var(--line);background:var(--card2);border-radius:999px;padding:8px 13px;font-size:14px;font-weight:700;cursor:pointer;transition:transform .12s,background .15s;color:var(--tx)}
+.chip .k{color:var(--tx2);font-size:11px;margin-left:5px;font-weight:700}
+.chip.on{background:var(--lime);border-color:var(--lime);color:#0d0f0c;transform:rotate(-1.5deg)}
+.chip.on .k{color:#2a4a12}
+.chip:active{transform:scale(.92)}
+input[type=text],input[type=number],textarea{width:100%;font:inherit;font-weight:700;border:1.5px solid var(--line);border-radius:14px;padding:12px 13px;background:var(--card2);color:var(--tx);outline:none}
+input::placeholder,textarea::placeholder{color:#5d6857;font-weight:500}
+input:focus,textarea:focus{border-color:var(--lime)}
+textarea{min-height:66px;resize:vertical}
+.row2{display:grid;grid-template-columns:1.4fr 1fr;gap:10px}
+/* uma-meter */
+.meter{background:var(--card2);border-radius:20px;padding:14px 14px 18px;border:1.5px solid var(--line);position:relative;overflow:hidden}
+.meter .top{display:flex;align-items:center;gap:14px}
+.meter .war{width:86px;height:86px;flex-shrink:0;transition:transform .2s}
+.meter .war.bump{animation:bump .25s}
+@keyframes bump{50%{transform:scale(1.12) rotate(-4deg)}}
+.meter .num{font-family:var(--disp);font-size:52px;line-height:1}
+.meter .num small{font-size:20px;color:var(--tx2)}
+.meter .shout{font-family:var(--disp);font-size:18px;color:var(--lime);margin-top:4px;min-height:22px}
+.meter .who{font-size:12px;color:var(--tx2);font-weight:700;letter-spacing:.06em}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:34px;background:transparent;margin-top:12px;touch-action:pan-y}
+input[type=range]::-webkit-slider-runnable-track{height:14px;border-radius:99px;background:linear-gradient(90deg,var(--lime) var(--p,0%),#2c3528 var(--p,0%))}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:34px;height:34px;border-radius:50%;background:#fff;border:4px solid #0d0f0c;box-shadow:0 0 0 3px var(--lime),0 4px 12px #0008;margin-top:-10px}
+input[type=range]::-moz-range-track{height:14px;border-radius:99px;background:#2c3528}
+input[type=range]::-moz-range-progress{height:14px;border-radius:99px;background:var(--lime)}
+input[type=range]::-moz-range-thumb{width:28px;height:28px;border-radius:50%;background:#fff;border:4px solid #0d0f0c}
+.ticks{display:flex;justify-content:space-between;font-size:10px;color:var(--tx2);font-weight:700;padding:0 6px}
+/* buttons */
+.btn{display:block;width:100%;border:0;border-radius:18px;padding:17px;font-family:var(--disp);font-size:19px;background:var(--grad);color:#0d0f0c;cursor:pointer;box-shadow:0 5px 0 #0f6b3a,0 10px 30px rgba(166,255,77,.18);text-align:center}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 #0f6b3a}
+.btn.ghost{background:transparent;color:var(--tx);box-shadow:none;border:1.5px solid var(--line);font-family:"Zen Kaku Gothic New";font-weight:700;font-size:15px;padding:13px;margin-top:10px}
+.btn.danger{background:transparent;color:var(--red);box-shadow:none;border:1.5px solid #5a2a30;font-family:"Zen Kaku Gothic New";font-weight:700;font-size:15px;padding:13px;margin-top:10px}
+/* ranking */
+.seg{display:flex;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:4px;margin-bottom:12px}
+.seg button{flex:1;border:0;background:none;font-size:13px;font-weight:700;padding:9px;border-radius:10px;color:var(--tx2);cursor:pointer}
+.seg button.on{background:var(--lime);color:#0d0f0c}
+.entry{display:flex;gap:12px;align-items:center;padding:12px;border-radius:20px;background:var(--card);border:1px solid var(--line);margin-bottom:10px;cursor:pointer;position:relative;overflow:hidden}
+.entry:active{transform:scale(.98)}
+.entry.top1{background:linear-gradient(135deg,#2a3a16,#191e17 60%);border-color:#4d6b22}
+.entry .av{width:58px;height:58px;flex-shrink:0;border-radius:16px;background:var(--card2)}
+.entry .av svg{width:100%;height:100%}
 .einfo{flex:1;min-width:0}
-.ename{font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.emeta{font-size:12px;color:var(--ink2);margin-top:2px}
-.etags{display:flex;gap:4px;flex-wrap:wrap;margin-top:5px}
-.tag{font-size:11px;background:var(--matcha-l);color:var(--matcha-d);padding:2px 7px;border-radius:999px}
-.hanko{width:50px;height:50px;border-radius:10px;border:2.5px solid var(--shu);color:var(--shu);display:grid;place-items:center;font-family:"Shippori Mincho";font-weight:800;line-height:1;text-align:center;transform:rotate(-6deg);flex-shrink:0;background:rgba(196,67,44,.04)}
-.hanko b{font-size:20px;display:block}
-.hanko i{font-style:normal;font-size:10px;display:block;margin-top:2px}
-.mini{font-family:"Shippori Mincho";font-size:12px;color:var(--shu);font-weight:700}
-.empty{text-align:center;padding:30px 10px;color:var(--ink2)}
-.empty .big{font-size:44px}
+.etitle{font-size:10px;font-weight:900;letter-spacing:.14em;color:var(--lime);margin-bottom:2px}
+.etitle.g{color:var(--gold)}
+.ename{font-weight:900;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.emeta{font-size:12px;color:var(--tx2);margin-top:2px;font-weight:700}
+.escore{font-family:var(--disp);font-size:26px;line-height:1;text-align:right}
+.escore small{display:block;font-family:"Zen Kaku Gothic New";font-size:10px;font-weight:900;color:var(--tx2);letter-spacing:.08em;margin-top:3px}
+.empty{text-align:center;padding:30px 10px;color:var(--tx2);font-weight:700}
+.empty svg{width:120px;height:120px;display:block;margin:0 auto 8px}
 /* stats */
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px}
-.stat .v{font-family:"Shippori Mincho";font-size:26px;font-weight:800;color:var(--matcha-d)}
-.stat .l{font-size:12px;color:var(--ink2)}
-.levelbar{height:10px;border-radius:99px;background:var(--washi2);overflow:hidden;margin-top:8px}
-.levelbar div{height:100%;background:linear-gradient(90deg,var(--matcha),var(--matcha-d))}
+.rankcard{background:var(--grad);color:#0d0f0c;border-radius:24px;padding:18px;position:relative;overflow:hidden}
+.rankcard .lv{font-family:var(--disp);font-size:34px;line-height:1}
+.rankcard .lvjp{font-weight:900;font-size:13px;letter-spacing:.14em;opacity:.7}
+.rankcard .bar{height:12px;border-radius:99px;background:rgba(13,15,12,.2);margin-top:14px;overflow:hidden}
+.rankcard .bar div{height:100%;background:#0d0f0c;border-radius:99px}
+.rankcard .nx{font-size:12px;font-weight:900;margin-top:6px;opacity:.75}
+.rankcard svg{position:absolute;right:-8px;top:-6px;width:110px;height:110px;transform:rotate(10deg)}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px}
+.stat .v{font-family:var(--disp);font-size:28px;color:var(--lime);line-height:1.1;word-break:break-word}
+.stat .l{font-size:12px;color:var(--tx2);font-weight:700;margin-top:3px}
+.bars .b{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;margin:8px 0}
+.bars .b .n{width:96px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bars .b .t{flex:1;height:12px;background:var(--card2);border-radius:99px;overflow:hidden}
+.bars .b .t div{height:100%;background:var(--grad);border-radius:99px}
+.bars .b .s{width:34px;text-align:right;font-family:var(--disp)}
 .badges{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.badge{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 6px;text-align:center;font-size:12px}
-.badge .e{font-size:28px;display:block;margin-bottom:4px}
-.badge.off{opacity:.38;filter:grayscale(1)}
-.badge small{display:block;color:var(--ink2);font-size:10px;margin-top:3px;line-height:1.3}
-.bars .b{display:flex;align-items:center;gap:8px;font-size:13px;margin:6px 0}
-.bars .b .n{width:92px;flex-shrink:0}
-.bars .b .t{flex:1;height:14px;background:var(--washi2);border-radius:99px;overflow:hidden}
-.bars .b .t div{height:100%;background:var(--matcha)}
-.bars .b .s{width:34px;text-align:right;font-family:"Shippori Mincho";font-weight:700}
+.badge{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px 6px;text-align:center;font-size:12px;font-weight:900}
+.badge .e{font-size:30px;display:block;margin-bottom:4px}
+.badge.off{opacity:.3;filter:grayscale(1)}
+.badge small{display:block;color:var(--tx2);font-size:10px;margin-top:3px;line-height:1.3;font-weight:700}
+.legend{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;text-align:center;font-size:10px;font-weight:900;color:var(--tx2)}
+.legend svg{width:100%;aspect-ratio:1;background:var(--card2);border-radius:14px;display:block;margin-bottom:4px}
 /* omikuji */
 .omi{text-align:center}
-.omibox{width:120px;height:170px;margin:10px auto 18px;background:linear-gradient(#a8442f,#8e3322);border-radius:14px 14px 10px 10px;position:relative;box-shadow:0 6px 0 #5e2216;display:grid;place-items:center;color:#f6e3c3;font-family:"Shippori Mincho";font-weight:800;font-size:26px;writing-mode:vertical-rl;letter-spacing:.2em}
-.omibox.shake{animation:shake .5s ease-in-out 2}
-@keyframes shake{0%,100%{transform:rotate(0)}25%{transform:rotate(-12deg)}75%{transform:rotate(12deg)}}
-.slip{background:#fffdf6;border:1px solid var(--line);border-radius:6px;padding:18px 16px;margin-top:14px;text-align:center;animation:pop .4s ease-out}
-.slip .fortune{font-family:"Shippori Mincho";font-size:40px;font-weight:800;color:var(--shu)}
-.slip .fde{font-size:13px;color:var(--ink2);margin-bottom:10px}
-@keyframes pop{from{transform:translateY(12px) scale(.96);opacity:0}to{transform:none;opacity:1}}
+.omi .ninja{width:150px;height:150px;margin:6px auto 10px;display:block}
+.omi .ninja.throw{animation:throw .9s ease-in-out}
+@keyframes throw{20%{transform:rotate(-14deg) scale(.95)}45%{transform:rotate(10deg) scale(1.08) translateY(-10px)}70%{transform:rotate(-4deg)}}
+.slip{background:#f3f7ee;color:#0d0f0c;border-radius:20px;padding:20px 16px;margin-top:16px;text-align:center;animation:pop .45s cubic-bezier(.2,1.5,.4,1);position:relative}
+.slip .fortune{font-family:var(--disp);font-size:46px;color:#0d0f0c;line-height:1}
+.slip .fde{font-size:12px;font-weight:900;letter-spacing:.12em;color:#1f8f50;margin:6px 0 12px}
+.slip .tip{font-weight:700;line-height:1.5}
+.slip .luck{font-size:12px;color:#55604f;margin-top:10px;font-weight:700}
+.slip.bad{background:#2a1416;color:#ffd6da}.slip.bad .fortune{color:var(--red)}.slip.bad .fde{color:#ff8a95}.slip.bad .luck{color:#c79a9f}
+@keyframes pop{from{transform:translateY(16px) scale(.9);opacity:0}to{transform:none;opacity:1}}
 /* nav */
-nav{position:fixed;left:0;right:0;bottom:0;background:rgba(251,247,238,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;justify-content:center;padding-bottom:var(--safe-b);z-index:10}
-nav .in{display:flex;max-width:560px;width:100%}
-nav button{flex:1;border:0;background:none;font:inherit;padding:9px 0 10px;color:var(--ink2);cursor:pointer;font-size:11px}
-nav button b{display:block;font-family:"Shippori Mincho";font-size:20px;font-weight:800;margin-bottom:1px}
-nav button.on{color:var(--matcha-d)}
-nav button.on b{color:var(--shu)}
+nav{position:fixed;left:12px;right:12px;bottom:calc(var(--safe-b) + 10px);z-index:10;display:flex;justify-content:center}
+nav .in{display:flex;max-width:520px;width:100%;background:rgba(25,30,23,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:24px;padding:6px;box-shadow:0 10px 30px #000a}
+nav button{flex:1;border:0;background:none;padding:7px 0 6px;color:var(--tx2);cursor:pointer;font-size:10px;font-weight:900;letter-spacing:.06em;border-radius:18px;transition:background .15s}
+nav button b{display:block;font-family:var(--disp);font-weight:400;font-size:19px;margin-bottom:1px;color:var(--tx)}
+nav button.on{background:var(--lime);color:#0d0f0c}
+nav button.on b{color:#0d0f0c}
 /* overlays */
-.overlay{position:fixed;inset:0;background:rgba(42,40,35,.35);display:grid;place-items:center;z-index:20;padding:20px;animation:fade .2s}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);display:grid;place-items:center;z-index:20;padding:20px;animation:fade .2s}
 @keyframes fade{from{opacity:0}}
-.stampbig{width:170px;height:170px;border:6px solid var(--shu);border-radius:18px;color:var(--shu);background:rgba(251,247,238,.92);display:grid;place-items:center;text-align:center;font-family:"Shippori Mincho";font-weight:800;animation:stamp .45s cubic-bezier(.2,1.6,.4,1) forwards}
-.stampbig b{font-size:56px;display:block;line-height:1}
-.stampbig i{font-style:normal;font-size:16px;display:block;margin-top:6px}
-@keyframes stamp{from{transform:scale(2.4) rotate(8deg);opacity:0}to{transform:scale(1) rotate(-8deg);opacity:1}}
-.dialog{background:var(--card);border-radius:18px;padding:20px;max-width:340px;width:100%;text-align:center}
-.dialog p{margin:0 0 14px}
-.toast{position:fixed;left:50%;bottom:calc(var(--safe-b) + 84px);transform:translateX(-50%);background:var(--ink);color:var(--washi);padding:10px 16px;border-radius:999px;font-size:14px;z-index:30;animation:pop .3s}
-.seg{display:flex;background:var(--washi2);border-radius:12px;padding:3px;margin-bottom:12px}
-.seg button{flex:1;border:0;background:none;font:inherit;font-size:13px;padding:7px;border-radius:9px;color:var(--ink2);cursor:pointer}
-.seg button.on{background:var(--card);color:var(--ink);font-weight:700;box-shadow:0 1px 2px #0001}
-.status{font-size:11px;color:var(--ink2);text-align:center;margin-top:18px}
-.detail .hanko{width:64px;height:64px}
-.detail .hanko b{font-size:26px}
-.dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:14px;margin:12px 0}
-.dl dt{color:var(--ink2)}
+.reveal{position:fixed;inset:0;z-index:25;display:grid;place-items:center;overflow:hidden;animation:fade .1s}
+.reveal .lines{position:absolute;inset:-50%;background:repeating-conic-gradient(from 0deg at 50% 50%,var(--lc) 0deg 2.2deg,transparent 2.2deg 7deg);animation:spin 6s linear infinite}
+@keyframes spin{to{transform:rotate(30deg)}}
+.reveal .core{position:relative;text-align:center;animation:slam .5s cubic-bezier(.2,1.6,.4,1)}
+@keyframes slam{from{transform:scale(2.6) rotate(-10deg);opacity:0}to{transform:none;opacity:1}}
+.reveal .core svg{width:200px;height:200px;filter:drop-shadow(0 10px 0 rgba(0,0,0,.25))}
+.reveal .big{font-family:var(--disp);font-size:58px;line-height:1;-webkit-text-stroke:3px #0d0f0c;paint-order:stroke fill;transform:rotate(-5deg);margin-top:4px}
+.reveal .sm{font-weight:900;letter-spacing:.14em;font-size:14px;margin-top:10px}
+.reveal.shake .core{animation:slam .5s cubic-bezier(.2,1.6,.4,1),shk .35s .5s 2}
+@keyframes shk{25%{transform:translate(-6px,2px) rotate(-2deg)}75%{transform:translate(6px,-2px) rotate(2deg)}}
+.dialog{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:20px;max-width:360px;width:100%;max-height:86vh;overflow:auto}
+.dhead{display:flex;gap:14px;align-items:center}
+.dhead svg{width:84px;height:84px;background:var(--card2);border-radius:20px;flex-shrink:0}
+.dl{display:grid;grid-template-columns:auto 1fr;gap:8px 14px;font-size:14px;margin:16px 0;font-weight:700}
+.dl dt{color:var(--tx2)}
 .dl dd{margin:0}
+.toast{position:fixed;left:50%;bottom:calc(var(--safe-b) + 96px);transform:translateX(-50%);background:var(--tx);color:var(--bg);padding:11px 18px;border-radius:999px;font-size:14px;font-weight:900;z-index:30;animation:pop .3s;white-space:nowrap}
+.status{font-size:11px;color:var(--tx2);text-align:center;margin-top:22px;font-weight:700}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<linearGradient id="bgG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9dff5c"/><stop offset="1" stop-color="#1fbf6a"/></linearGradient>
+<linearGradient id="cupG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#dfe7d8"/></linearGradient>
+<g id="base"><path d="M24 38h52l-5 34c-1 8-8 13-17 13h-8c-9 0-16-5-17-13z" fill="url(#cupG)"/><ellipse cx="50" cy="38" rx="26" ry="5.5" fill="#2f9a4a"/></g>
+</defs></svg>
+
 <div class="wrap">
   <header>
-    <div class="logo">茶</div>
-    <div><h1>Umacha<small>コンビニ茶 · TEE-TAGEBUCH</small></h1></div>
+    <div class="ava" id="hdrAva"></div>
+    <div><div class="brand">Uma<em>cha</em></div><div class="tagline">旨茶 · KONBINI TEA DOJO</div></div>
   </header>
   <main id="app"></main>
   <div class="status" id="status"></div>
 </div>
 <nav><div class="in">
-  <button data-v="new"><b>記</b>Neu</button>
-  <button data-v="rank"><b>番付</b>Ranking</button>
-  <button data-v="stats"><b>道</b>Stats</button>
-  <button data-v="omikuji"><b>籤</b>Omikuji</button>
+  <button data-v="new"><b>記</b>NEU</button>
+  <button data-v="rank"><b>番付</b>RANKING</button>
+  <button data-v="stats"><b>忍</b>DOJO</button>
+  <button data-v="omikuji"><b>籤</b>ORAKEL</button>
 </div></nav>
 <div id="layer"></div>
 
 <script>
+// ---------- Krieger (SVG) ----------
+const W={
+ninja:`<g transform="rotate(20 82 22)" fill="#2b2b2b"><path d="M82 12l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/><circle cx="82" cy="22" r="1.6" fill="#9dff5c"/></g><g transform="rotate(-15 16 78)" fill="#2b2b2b"><path d="M16 70l2.4 5.6 5.6 2.4-5.6 2.4-2.4 5.6-2.4-5.6-5.6-2.4 5.6-2.4z"/></g><path d="M12 36l12 2M10 44l13 0M14 52l10-2" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".7"/><use href="#base"/><path d="M24.6 46h50.8l-1.6 13H26.2z" fill="#1d1d1d"/><path d="M75 48c6-2 10 0 14-4-2 6-6 8-12 8M75 54c6 0 9 3 13 1-3 5-8 5-13 3" fill="#1d1d1d"/><path d="M33 52c3-3 8-3 11 0M56 52c3-3 8-3 11 0" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round"/><circle cx="39" cy="53" r="2.4" fill="#fff"/><circle cx="61" cy="53" r="2.4" fill="#fff"/><path d="M36 47l8 3M64 47l-8 3" stroke="#9dff5c" stroke-width="2.2" stroke-linecap="round"/>`,
+oni:`<path d="M30 36c-4-10-2-20 4-26 0 8 4 14 8 22z" fill="#f2e2c4" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/><path d="M70 36c4-10 2-20-4-26 0 8-4 14-8 22z" fill="#f2e2c4" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/><g transform="translate(0 2)"><use href="#base"/></g><path d="M35 50l11 4M65 50l-11 4" stroke="#111" stroke-width="3.4" stroke-linecap="round"/><circle cx="41" cy="58" r="3.4" fill="#d6312c" stroke="#111" stroke-width="1.6"/><circle cx="59" cy="58" r="3.4" fill="#d6312c" stroke="#111" stroke-width="1.6"/><path d="M38 66c4 6 20 6 24 0z" fill="#111"/><path d="M41 66l2 4 2-4M55 66l2 4 2-4" fill="#fff"/>`,
+kabuki:`<use href="#base"/><path d="M33 49c4-6 9-7 13-3M67 49c-4-6-9-7-13-3" stroke="#d6312c" stroke-width="4.4" fill="none" stroke-linecap="round"/><path d="M34 46c-4-6-2-12 2-14M66 46c4-6 2-12-2-14" stroke="#111" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M36 54l8 2-8 2M64 54l-8 2 8 2" fill="#111" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/><path d="M30 62c4 2 6 6 6 10M70 62c-4 2-6 6-6 10" stroke="#d6312c" stroke-width="3.2" fill="none" stroke-linecap="round"/><path d="M43 70c4-4 10-4 14 0" stroke="#d6312c" stroke-width="3.4" fill="none" stroke-linecap="round"/>`,
+ronin:`<g transform="translate(0 6)"><use href="#base"/></g><path d="M8 46L50 18l42 28c-12 4-26 6-42 6S20 50 8 46z" fill="#d9b56b" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/><path d="M50 18L30 49M50 18L70 49M50 18L50 52M50 18L18 47M50 18L82 47" stroke="#a8843e" stroke-width="1.2"/><path d="M30 56c3-2 8-2 11 0" stroke="#111" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="60" cy="60" r="3.2" fill="#111"/><path d="M54 54l11 2" stroke="#111" stroke-width="3" stroke-linecap="round"/><path d="M42 72h12" stroke="#111" stroke-width="3" stroke-linecap="round"/><path d="M53 72l14-6" stroke="#8a6a2a" stroke-width="2.4" stroke-linecap="round"/><path d="M67 66l3-3M67 66l4 0" stroke="#5fae3a" stroke-width="1.8" stroke-linecap="round"/>`,
+samurai:`<path d="M78 14L58 80" stroke="#111" stroke-width="4" stroke-linecap="round"/><path d="M78 14L62 66" stroke="#e8eef2" stroke-width="2.2" stroke-linecap="round"/><g transform="translate(0 4)"><use href="#base"/></g><path d="M20 42c0-14 13-22 30-22s30 8 30 22c-6-3-14-4-30-4s-24 1-30 4z" fill="#1d1d1d"/><path d="M22 42c-4 4-6 10-4 14 4-3 6-8 8-12" fill="#1d1d1d"/><path d="M78 42c4 4 6 10 4 14-4-3-6-8-8-12" fill="#1d1d1d"/><path d="M36 22C30 14 32 6 38 4c-2 6 2 12 12 14 10-2 14-8 12-14 6 2 8 10 2 18" fill="#e6b422" stroke="#111" stroke-width="1.6"/><circle cx="50" cy="28" r="3.4" fill="#d6312c"/><path d="M35 52l10 3M65 52l-10 3" stroke="#111" stroke-width="3.2" stroke-linecap="round"/><circle cx="41" cy="59" r="3" fill="#111"/><circle cx="59" cy="59" r="3" fill="#111"/><path d="M44 66c4 2 8 2 12 0" stroke="#111" stroke-width="3" fill="none" stroke-linecap="round"/>`,
+sumo:`<path d="M27 58c-7 0-12-3-13-9-1-4 1-8 4-11l4 3c-2 2-2 4-1 6 1 2 3 3 7 3z" fill="#fff" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/><circle cx="18" cy="36" r="5" fill="#fff" stroke="#111" stroke-width="2.4"/><path d="M73 58c7 0 12-3 13-9 1-4-1-8-4-11l-4 3c2 2 2 4 1 6-1 2-3 3-7 3z" fill="#fff" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/><circle cx="82" cy="36" r="5" fill="#fff" stroke="#111" stroke-width="2.4"/><use href="#base"/><path d="M46 32c0-6 8-6 8 0" fill="#111"/><ellipse cx="50" cy="26" rx="5" ry="3.4" fill="#111"/><path d="M27 66h46l-1 8H28z" fill="#1d2a6b"/><path d="M45 74h10v10h-10z" fill="#1d2a6b"/><path d="M37 48l8 2M63 48l-8 2" stroke="#111" stroke-width="3" stroke-linecap="round"/><path d="M38 55c2-3 5-3 7 0M55 55c2-3 5-3 7 0" stroke="#111" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M43 60c3 5 11 5 14 0z" fill="#d6312c" stroke="#111" stroke-width="2" stroke-linejoin="round"/><path d="M40 18l-3-6 6 3 3-7 3 7 6-3-3 6z" fill="#ffd23f" stroke="#111" stroke-width="1.6" stroke-linejoin="round"/>`
+};
+const svg=(id,bg)=>`<svg viewBox="0 0 100 100">${bg?'<rect width="100" height="100" fill="url(#bgG)"/>':''}${W[id]}</svg>`;
+
+function warrior(r){
+  if(r>=5)  return{id:"sumo",   name:"Yokozuna",jp:"神",    shout:"UMAAA!!", line:"Legendärer Tee. Verbeug dich.",lc:"rgba(13,15,12,.9)",bg:"var(--grad)",tc:"#fff"};
+  if(r>=4)  return{id:"samurai",name:"Samurai", jp:"旨い",  shout:"UMAI!",   line:"Ehrenhaft lecker.",lc:"rgba(13,15,12,.85)",bg:"#a6ff4d",tc:"#fff"};
+  if(r>=3)  return{id:"ronin",  name:"Rōnin",   jp:"まあまあ",shout:"MAA MAA.",line:"Kann man trinken. Muss man nicht.",lc:"rgba(166,255,77,.25)",bg:"#191e17",tc:"#a6ff4d"};
+  if(r>=2)  return{id:"kabuki", name:"Kabuki",  jp:"微妙",  shout:"BIMYŌ…",  line:"Sehr viel Drama, wenig Geschmack.",lc:"rgba(255,77,94,.22)",bg:"#1d1416",tc:"#ff4d5e"};
+  if(r>0)   return{id:"oni",    name:"Oni",     jp:"不味い",shout:"MAZUI!!", line:"Ein Dämon in Flaschenform.",lc:"rgba(255,77,94,.35)",bg:"#120a0b",tc:"#ff4d5e"};
+  return{id:"ninja",name:"Ninja",jp:"？",shout:"",line:"Schieb den Regler – der Ninja wartet.",lc:"",bg:"",tc:""};
+}
+
 // ---------- Daten ----------
 const STORES=[["7-Eleven","セブン"],["FamilyMart","ファミマ"],["Lawson","ローソン"],["Ministop","ミニストップ"],["Supermarkt","スーパー"],["Automat","自販機"],["Drogerie","薬局"],["Sonstiges",""]];
 const TYPES=[["mugicha","Mugicha","麦茶"],["ryokucha","Grüntee","緑茶"],["hojicha","Hōjicha","ほうじ茶"],["genmaicha","Genmaicha","玄米茶"],["oolong","Oolong","烏龍茶"],["jasmin","Jasmin","ジャスミン"],["matcha","Matcha","抹茶"],["kocha","Schwarztee","紅茶"],["milktea","Milchtee","ミルクティー"],["sobacha","Sobacha","そば茶"],["andere","Andere","他"]];
@@ -157,22 +215,14 @@ const AGAIN=[["immer","Jederzeit 🙌"],["vielleicht","Vielleicht 🤔"],["notfa
 const TEMPS=[["kalt","Kalt 🧊","冷"],["warm","Warm ♨️","温"]];
 const typeName=id=>(TYPES.find(t=>t[0]===id)||[,id||"?"])[1];
 const typeJp=id=>(TYPES.find(t=>t[0]===id)||[,,""])[2];
-
-function verdict(r){
-  if(r>=5)return{k:"神",d:"Kami",t:"Göttlich. Teezeremonie-würdig."};
-  if(r>=4)return{k:"旨",d:"Umai",t:"Richtig lecker."};
-  if(r>=3)return{k:"良",d:"Yoi",t:"Solide. Kann man trinken."};
-  if(r>=2)return{k:"微妙",d:"Bimyō",t:"Hmm… fragwürdig."};
-  if(r>0) return{k:"不味",d:"Mazui",t:"Eher Pfützenwasser."};
-  return{k:"?",d:"",t:"Tippe auf die Tassen zum Bewerten"};
-}
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const today=()=>{const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")};
 const fmtDate=s=>{if(!s)return"";const[y,m,d]=s.split("-");return `${+d}.${+m}.${y}`};
 const fmtR=r=>(Math.round(r*10)/10).toLocaleString("de-DE",{minimumFractionDigits:1,maximumFractionDigits:1});
+const buzz=p=>{try{navigator.vibrate&&navigator.vibrate(p)}catch(e){}};
 
 // ---------- Speicher (auf dem iPhone) ----------
-let teas=[], mode="local", readOnly=false;
+let teas=[];
 const LS="ocha-log-v1";
 function lsLoad(){try{return JSON.parse(localStorage.getItem(LS)||"[]")}catch(e){return[]}}
 function lsSave(){try{localStorage.setItem(LS,JSON.stringify(teas))}catch(e){toast("Speichern fehlgeschlagen 😿")}}
@@ -182,15 +232,15 @@ function initStore(){
     if(!teas.length) teas.push({id:"t-lawson-mugicha",name:"Lawson Mugicha",store:"Lawson",type:"mugicha",rating:1.5,flavors:[],temp:"",price:"",again:"",note:"Der allererste Eintrag.",date:"2026-11-01",createdAt:1793534400000,updatedAt:1793534400000});
     localStorage.setItem("ocha-seeded","1"); lsSave(); } }catch(e){}
   if(navigator.storage&&navigator.storage.persist)navigator.storage.persist().catch(()=>{});
-  setStatus(); render();
+  document.getElementById("status").textContent="📱 Gespeichert auf deinem iPhone";
+  render();
 }
-function setStatus(){document.getElementById("status").textContent="📱 Gespeichert auf deinem iPhone";}
-async function saveTea(t){const i=teas.findIndex(x=>x.id===t.id); if(i>=0)teas[i]=t; else teas.push(t); lsSave(); return true;}
-async function deleteTea(id){teas=teas.filter(x=>x.id!==id); lsSave();}
+function saveTea(t){const i=teas.findIndex(x=>x.id===t.id); if(i>=0)teas[i]=t; else teas.push(t); lsSave();}
+function deleteTea(id){teas=teas.filter(x=>x.id!==id); lsSave();}
 
 // ---------- Backup ----------
 async function exportBackup(){
-  const json=JSON.stringify({app:"ocha-log",v:1,exported:new Date().toISOString(),teas},null,1);
+  const json=JSON.stringify({app:"umacha",v:1,exported:new Date().toISOString(),teas},null,1);
   const name=`umacha-backup-${today()}.json`;
   const file=new File([json],name,{type:"application/json"});
   try{ if(navigator.canShare&&navigator.canShare({files:[file]})){ await navigator.share({files:[file],title:"Umacha Backup"}); return; } }catch(e){ if(e&&e.name==="AbortError")return; }
@@ -200,7 +250,7 @@ function importBackup(file){
   const r=new FileReader();
   r.onload=()=>{try{const d=JSON.parse(r.result);const list=Array.isArray(d)?d:d.teas;if(!Array.isArray(list))throw 0;
     let added=0;list.forEach(t=>{if(!t||!t.id||typeof t.rating!=="number")return;const i=teas.findIndex(x=>x.id===t.id);if(i>=0)teas[i]=t;else{teas.push(t);added++}});
-    lsSave();render();toast(`Backup geladen – ${added} neue Tees 🍵`);}catch(e){toast("Das ist keine gültige Backup-Datei")}};
+    lsSave();render();toast(`Backup geladen – ${added} neue Tees 🥷`);}catch(e){toast("Das ist keine gültige Backup-Datei")}};
   r.readAsText(file);
 }
 
@@ -208,102 +258,101 @@ function importBackup(file){
 let view="new", rankFilter="alle", rankSort="rating", omikuji=null;
 const blank=()=>({id:null,name:"",store:"",type:"",rating:0,flavors:[],temp:"",price:"",again:"",note:"",date:today()});
 let form=blank();
-
+document.getElementById("hdrAva").innerHTML=svg("ninja");
 function go(v){view=v;render();window.scrollTo({top:0,behavior:"smooth"});}
-document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{ if(b.dataset.v==="new"&&view!=="new")form=blank(); go(b.dataset.v); });
+document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{ if(b.dataset.v==="new"&&view!=="new")form=blank(); buzz(6); go(b.dataset.v); });
 
 function render(){
   document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on",b.dataset.v===view));
   const app=document.getElementById("app");
-  if(mode==="loading"){app.innerHTML=`<div class="empty"><div class="big">🍵</div>Tee wird aufgegossen …</div>`;return}
   app.innerHTML = view==="new"?viewNew(): view==="rank"?viewRank(): view==="stats"?viewStats(): viewOmikuji();
-  bind();
+  ({new:bindNew,rank:bindRank,stats:bindStats,omikuji:bindOmikuji})[view]();
 }
 
 // ---------- Neuer Eintrag ----------
-const cupSvg=(c,stroke)=>`<svg viewBox="0 0 48 48"><path d="M8 14h28v10c0 9-6 16-14 16S8 33 8 24z" fill="${c}" stroke="${stroke}" stroke-width="2.2" stroke-linejoin="round"/><path d="M36 17h3a5 5 0 0 1 0 10h-3.4" fill="none" stroke="${stroke}" stroke-width="2.2"/><path d="M15 6c-2 2 2 3 0 5M22 5c-2 2 2 3 0 5M29 6c-2 2 2 3 0 5" fill="none" stroke="${stroke}" stroke-width="1.6" stroke-linecap="round" opacity=".55"/></svg>`;
-function cupsHtml(r){
-  let h="";for(let i=0;i<5;i++){const f=Math.max(0,Math.min(1,r-i));
-    h+=`<div class="cup">${cupSvg("#efe7d4","#c9bea4")}<div class="fill" style="position:absolute;inset:0;clip-path:inset(0 ${100-f*100}% 0 0)">${cupSvg("#7c9c4f","#3e5530")}</div></div>`;}
-  return h;
-}
 function chips(list,sel,key,multi){
-  return list.map(x=>{const id=Array.isArray(x)?x[0]:x, lab=Array.isArray(x)?x[1]:x, k=Array.isArray(x)&&x[2]?x[2]:(Array.isArray(x)&&key==="store"?x[1]:"");
-    const label = key==="store"? id : lab;
+  return list.map(x=>{const id=Array.isArray(x)?x[0]:x;
+    const label = key==="store"? id : (Array.isArray(x)?x[1]:x);
     const jp = key==="store"? x[1] : (Array.isArray(x)?x[2]||"":"");
     const on = multi? sel.includes(id) : sel===id;
     return `<button class="chip ${on?"on":""}" data-k="${key}" data-id="${esc(id)}">${esc(label)}${jp?`<span class="k">${jp}</span>`:""}</button>`}).join("");
 }
+function meterInner(r){
+  const w=warrior(r);
+  return `<div class="top"><div class="war" id="mWar">${svg(w.id)}</div>
+    <div><div class="num">${r?fmtR(r):"–"}<small> /5</small></div>
+    <div class="shout" style="color:${r?w.tc==="#fff"?"var(--lime)":w.tc:"var(--tx2)"}">${r?w.shout:"Wie war er?"}</div>
+    <div class="who">${r?`${w.name.toUpperCase()} · ${w.jp}`:w.line}</div></div></div>`;
+}
 function viewNew(){
-  const v=verdict(form.rating);
+  const pct=form.rating/5*100;
   return `
-  <h2>${form.id?"Eintrag bearbeiten":"Was trinkst du?"} <span class="jp">${form.id?"編集":"今日のお茶"}</span></h2>
-  <div class="card">
-    <div class="field"><div class="label">Wo gekauft? <span>店</span></div><div class="chips">${chips(STORES,form.store,"store")}</div></div>
-    <div class="field"><div class="label">Welcher Tee? <span>種類</span></div><div class="chips">${chips(TYPES,form.type,"type")}</div></div>
-    <div class="field"><div class="label">Bewertung <span>評価</span></div>
-      <div style="display:flex;align-items:center"><div class="cups" id="cups">${cupsHtml(form.rating)}</div><div class="score" id="score">${form.rating?fmtR(form.rating):"–"}</div></div>
-      <div class="verdict" id="verdict">${form.rating?`<span class="mini">${v.k}</span> ${v.t}`:v.t}</div>
+  <h2>${form.id?"Eintrag ändern":"Neuer Tee"} <span class="jp">${form.id?"編集":"今日のお茶"}</span></h2>
+  <div class="field"><div class="label"><b>Wo gekauft?</b><span>店</span></div><div class="chips">${chips(STORES,form.store,"store")}</div></div>
+  <div class="field"><div class="label"><b>Welcher Tee?</b><span>種類</span></div><div class="chips">${chips(TYPES,form.type,"type")}</div></div>
+  <div class="field"><div class="label"><b>Uma-Meter</b><span>評価</span></div>
+    <div class="meter"><div id="meterIn">${meterInner(form.rating)}</div>
+      <input type="range" id="rate" min="0" max="10" step="1" value="${form.rating*2}" style="--p:${pct}%">
+      <div class="ticks"><span>👹</span><span>🎭</span><span>👒</span><span>⚔️</span><span>👑</span></div>
     </div>
-    <div class="field"><div class="label">Geschmack <span>味 · mehrere möglich</span></div><div class="chips">${chips(FLAVORS,form.flavors,"flavors",true)}</div></div>
-    <div class="field"><div class="label">Nochmal kaufen? <span>また買う？</span></div><div class="chips">${chips(AGAIN,form.again,"again")}</div></div>
-    <div class="field"><div class="label">Temperatur <span>温度</span></div><div class="chips">${chips(TEMPS,form.temp,"temp")}</div></div>
-    <div class="field row2">
-      <div><div class="label">Name <span>optional</span></div><input type="text" id="f-name" placeholder="z.B. Kenko Mineral Mugi" value="${esc(form.name)}"></div>
-      <div><div class="label">Preis ¥ <span>optional</span></div><input type="number" inputmode="numeric" id="f-price" placeholder="138" value="${esc(form.price)}"></div>
-    </div>
-    <div class="field" style="margin-bottom:20px"><div class="label">Notiz <span>optional</span></div><textarea id="f-note" placeholder="Ein Satz reicht. Oder gar keiner.">${esc(form.note)}</textarea></div>
-    <button class="btn" id="save">判 Stempeln &amp; speichern</button>
-    ${form.id?`<button class="btn ghost" id="cancel">Abbrechen</button><button class="btn danger" id="del">Eintrag löschen</button>`:""}
-  </div>`;
+  </div>
+  <div class="field"><div class="label"><b>Geschmack</b><span>味 · MEHRERE</span></div><div class="chips">${chips(FLAVORS,form.flavors,"flavors",true)}</div></div>
+  <div class="field"><div class="label"><b>Nochmal kaufen?</b><span>また買う？</span></div><div class="chips">${chips(AGAIN,form.again,"again")}</div></div>
+  <div class="field"><div class="label"><b>Temperatur</b><span>温度</span></div><div class="chips">${chips(TEMPS,form.temp,"temp")}</div></div>
+  <div class="field row2">
+    <div><div class="label"><b>Name</b><span>OPTIONAL</span></div><input type="text" id="f-name" placeholder="z.B. Oi Ocha" value="${esc(form.name)}"></div>
+    <div><div class="label"><b>Preis ¥</b><span>OPTIONAL</span></div><input type="number" inputmode="numeric" id="f-price" placeholder="138" value="${esc(form.price)}"></div>
+  </div>
+  <div class="field"><div class="label"><b>Notiz</b><span>OPTIONAL</span></div><textarea id="f-note" placeholder="Ein Satz reicht. Oder gar keiner.">${esc(form.note)}</textarea></div>
+  <button class="btn" id="save">斬 BEWERTEN!</button>
+  ${form.id?`<button class="btn ghost" id="cancel">Abbrechen</button><button class="btn danger" id="del">Eintrag löschen</button>`:""}`;
 }
 function bindNew(){
   document.querySelectorAll(".chip").forEach(c=>c.onclick=()=>{
-    const k=c.dataset.k,id=c.dataset.id;
+    const k=c.dataset.k,id=c.dataset.id; buzz(5);
     if(k==="flavors"){form.flavors=form.flavors.includes(id)?form.flavors.filter(f=>f!==id):[...form.flavors,id];c.classList.toggle("on");}
     else{form[k]=form[k]===id?"":id; c.parentNode.querySelectorAll(".chip").forEach(x=>x.classList.toggle("on",x===c&&form[k]===id));}
   });
-  const cups=document.getElementById("cups");
-  const setFromX=x=>{const r=cups.getBoundingClientRect();let v=Math.ceil(((x-r.left)/r.width)*10)/2;v=Math.max(.5,Math.min(5,v));
-    if(v!==form.rating){form.rating=v;cups.innerHTML=cupsHtml(v);document.getElementById("score").textContent=fmtR(v);
-      const vd=verdict(v);document.getElementById("verdict").innerHTML=`<span class="mini">${vd.k}</span> ${vd.t}`; if(navigator.vibrate)try{navigator.vibrate(8)}catch(e){}}};
-  cups.addEventListener("pointerdown",e=>{setFromX(e.clientX);cups.setPointerCapture(e.pointerId)});
-  cups.addEventListener("pointermove",e=>{if(e.buttons||e.pressure)setFromX(e.clientX)});
+  const rate=document.getElementById("rate");
+  rate.oninput=()=>{const v=+rate.value/2; const prevW=warrior(form.rating).id; form.rating=v;
+    rate.style.setProperty("--p",(v/5*100)+"%");
+    document.getElementById("meterIn").innerHTML=meterInner(v);
+    if(warrior(v).id!==prevW){const m=document.getElementById("mWar");m.classList.add("bump");buzz(15);} else buzz(4);
+  };
   ["name","price","note"].forEach(k=>{const el=document.getElementById("f-"+k);el.oninput=()=>form[k]=el.value;});
-  document.getElementById("save").onclick=async()=>{
+  document.getElementById("save").onclick=()=>{
     if(!form.type){toast("Welcher Tee war's? 🍵");return}
-    if(!form.rating){toast("Noch keine Bewertung – tipp auf die Tassen");return}
-    const isNew=!form.id;
+    if(!form.rating){toast("Erst das Uma-Meter schieben 👆");return}
     const t={...form,id:form.id||("t"+Date.now().toString(36)+Math.random().toString(36).slice(2,6)),price:form.price===""?"":Number(form.price),name:form.name.trim(),note:form.note.trim(),updatedAt:Date.now()};
-    if(isNew)t.createdAt=Date.now();
-    const ok=await saveTea(t); if(!ok)return;
-    stamp(t.rating,()=>{form=blank();view="rank";render();});
-    if(mode==="local")render();
+    if(!form.id)t.createdAt=Date.now();
+    saveTea(t);
+    reveal(t.rating,()=>{form=blank();view="rank";render();window.scrollTo(0,0)});
   };
   const c=document.getElementById("cancel"); if(c)c.onclick=()=>{form=blank();go("rank")};
-  const d=document.getElementById("del"); if(d)d.onclick=()=>confirmBox("Diesen Tee wirklich löschen?",async()=>{await deleteTea(form.id);form=blank();go("rank");toast("Gelöscht 🍂")});
+  const d=document.getElementById("del"); if(d)d.onclick=()=>confirmBox("Diesen Tee wirklich löschen?",()=>{deleteTea(form.id);form=blank();go("rank");toast("Weg damit 🥷💨")});
 }
 
 // ---------- Ranking (番付) ----------
+const TITLES=[["YOKOZUNA","横綱"],["ŌZEKI","大関"],["SEKIWAKE","関脇"],["KOMUSUBI","小結"]];
 function displayName(t){return t.name||`${t.store?t.store+" ":""}${typeName(t.type)}`}
 function viewRank(){
   const types=["alle",...new Set(teas.map(t=>t.type))];
   let list=teas.filter(t=>rankFilter==="alle"||t.type===rankFilter);
   list.sort(rankSort==="rating"?(a,b)=>b.rating-a.rating||(b.createdAt||0)-(a.createdAt||0):(a,b)=>(b.date||"").localeCompare(a.date||"")||(b.createdAt||0)-(a.createdAt||0));
-  const items=list.map((t,i)=>{const v=verdict(t.rating);const rk=rankSort==="rating"?i+1:"";
-    return `<div class="entry" data-id="${t.id}">
-      ${rankSort==="rating"?`<div class="rank ${rk<=3?"r"+rk:""}">${rk===1?"🥇":rk===2?"🥈":rk===3?"🥉":rk}</div>`:""}
-      <div class="einfo"><div class="ename">${esc(displayName(t))}</div>
-        <div class="emeta">${typeJp(t.type)} · ${esc(t.store||"?")} · ${fmtDate(t.date)}${t.price!==""&&t.price!=null?` · ¥${esc(t.price)}`:""}</div>
-        ${t.flavors&&t.flavors.length?`<div class="etags">${t.flavors.slice(0,4).map(f=>`<span class="tag">${esc(f)}</span>`).join("")}</div>`:""}
-      </div>
-      <div class="hanko"><div><b>${v.k.length>1?`<span style="font-size:15px">${v.k}</span>`:v.k}</b><i>${fmtR(t.rating)}</i></div></div>
+  const items=list.map((t,i)=>{const w=warrior(t.rating);
+    const title=rankSort==="rating"?(TITLES[i]?`${TITLES[i][0]} ${TITLES[i][1]}`:`MAEGASHIRA 前頭 #${i-3}`):fmtDate(t.date);
+    return `<div class="entry ${rankSort==="rating"&&i===0?"top1":""}" data-id="${t.id}">
+      <div class="av">${svg(w.id)}</div>
+      <div class="einfo"><div class="etitle ${rankSort==="rating"&&i===0?"g":""}">${title}</div>
+        <div class="ename">${esc(displayName(t))}</div>
+        <div class="emeta">${typeJp(t.type)} · ${esc(t.store||"?")}${t.price!==""&&t.price!=null?` · ¥${esc(t.price)}`:""}</div></div>
+      <div class="escore" style="color:${w.tc==="#fff"?"var(--lime)":w.tc}">${fmtR(t.rating)}<small>${w.shout}</small></div>
     </div>`}).join("");
   return `
-  <h2>Banzuke <span class="jp">番付 · deine Rangliste</span></h2>
+  <h2>Banzuke <span class="jp">番付 · RANGLISTE</span></h2>
   <div class="seg"><button data-s="rating" class="${rankSort==="rating"?"on":""}">Nach Bewertung</button><button data-s="date" class="${rankSort==="date"?"on":""}">Neueste zuerst</button></div>
-  ${types.length>2?`<div class="chips" style="margin-bottom:12px">${types.map(t=>`<button class="chip ${rankFilter===t?"on":""}" data-f="${esc(t)}">${t==="alle"?"Alle":esc(typeName(t))}</button>`).join("")}</div>`:""}
-  ${items||`<div class="empty"><div class="big">🫖</div>Noch keine Tees.<br>Ab in den Konbini!</div>`}`;
+  ${types.length>2?`<div class="chips" style="margin-bottom:14px">${types.map(t=>`<button class="chip ${rankFilter===t?"on":""}" data-f="${esc(t)}">${t==="alle"?"Alle":esc(typeName(t))}</button>`).join("")}</div>`:""}
+  ${items||`<div class="empty">${svg("ninja")}Noch keine Tees.<br>Ab in den Konbini, Ninja!</div>`}`;
 }
 function bindRank(){
   document.querySelectorAll("[data-s]").forEach(b=>b.onclick=()=>{rankSort=b.dataset.s;render()});
@@ -311,22 +360,22 @@ function bindRank(){
   document.querySelectorAll(".entry").forEach(e=>e.onclick=()=>showDetail(teas.find(t=>t.id===e.dataset.id)));
 }
 function showDetail(t){
-  if(!t)return;const v=verdict(t.rating);const ag=(AGAIN.find(a=>a[0]===t.again)||[,"–"])[1];const tp=(TEMPS.find(a=>a[0]===t.temp)||[,"–"])[1];
-  overlay(`<div class="dialog detail" style="text-align:left">
-    <div style="display:flex;gap:14px;align-items:center"><div class="hanko"><div><b>${v.k.length>1?`<span style="font-size:18px">${v.k}</span>`:v.k}</b><i>${fmtR(t.rating)}</i></div></div>
-    <div><div style="font-weight:700;font-size:18px">${esc(displayName(t))}</div><div class="sub">${v.d} — ${v.t}</div></div></div>
-    <div style="margin-top:12px" class="cups">${cupsHtml(t.rating)}</div>
+  if(!t)return;const w=warrior(t.rating);const ag=(AGAIN.find(a=>a[0]===t.again)||[,"–"])[1];const tp=(TEMPS.find(a=>a[0]===t.temp)||[,"–"])[1];
+  overlay(`<div class="dialog">
+    <div class="dhead">${svg(w.id)}<div><div style="font-family:var(--disp);font-size:20px;line-height:1.15">${esc(displayName(t))}</div>
+      <div style="font-family:var(--disp);font-size:30px;color:${w.tc==="#fff"?"var(--lime)":w.tc};margin-top:4px">${fmtR(t.rating)} <span style="font-size:16px">${w.shout}</span></div>
+      <div class="sub">${w.name} · ${w.line}</div></div></div>
     <dl class="dl"><dt>Sorte</dt><dd>${esc(typeName(t.type))} ${typeJp(t.type)}</dd><dt>Laden</dt><dd>${esc(t.store||"–")}</dd><dt>Datum</dt><dd>${fmtDate(t.date)}</dd>
     <dt>Preis</dt><dd>${t.price!==""&&t.price!=null?"¥"+esc(t.price):"–"}</dd><dt>Temp.</dt><dd>${tp}</dd><dt>Nochmal?</dt><dd>${ag}</dd>
     ${t.flavors&&t.flavors.length?`<dt>Geschmack</dt><dd>${t.flavors.map(esc).join(", ")}</dd>`:""}
     ${t.note?`<dt>Notiz</dt><dd>${esc(t.note)}</dd>`:""}</dl>
-    ${readOnly?"":`<button class="btn" id="d-edit">Bearbeiten</button>`}<button class="btn ghost" id="d-close">Schließen</button></div>`);
+    <button class="btn" id="d-edit">Bearbeiten</button><button class="btn ghost" id="d-close">Schließen</button></div>`);
   document.getElementById("d-close").onclick=closeOverlay;
-  const ed=document.getElementById("d-edit"); if(ed)ed.onclick=()=>{form={...blank(),...t,flavors:[...(t.flavors||[])],price:t.price??""};closeOverlay();go("new")};
+  document.getElementById("d-edit").onclick=()=>{form={...blank(),...t,flavors:[...(t.flavors||[])],price:t.price??""};closeOverlay();go("new")};
 }
 
-// ---------- Stats & Abzeichen ----------
-const LEVELS=[[0,"見習い","Tee-Lehrling"],[5,"茶人","Chajin"],[15,"茶道家","Teemeister"],[30,"茶聖","Tee-Heiliger"],[60,"茶神","Tee-Gottheit"]];
+// ---------- Dojo (Stats) ----------
+const LEVELS=[[0,"GENIN","下忍","Ninja-Azubi"],[5,"CHŪNIN","中忍","Mittlerer Ninja"],[15,"JŌNIN","上忍","Elite-Ninja"],[30,"KAGE","影","Schatten-Meister"],[60,"LEGENDE","伝説","Tee-Legende"]];
 function viewStats(){
   const n=teas.length;const avg=n?teas.reduce((s,t)=>s+t.rating,0)/n:0;
   const spent=teas.reduce((s,t)=>s+(Number(t.price)||0),0);
@@ -336,84 +385,92 @@ function viewStats(){
     return Object.entries(m).map(([k,a])=>[k,a.reduce((x,y)=>x+y,0)/a.length,a.length]).sort((a,b)=>b[1]-a[1])};
   const byStore=group("store"),byType=group("type");
   const fl={};teas.forEach(t=>(t.flavors||[]).forEach(f=>fl[f]=(fl[f]||0)+1));const topFl=Object.entries(fl).sort((a,b)=>b[1]-a[1])[0];
-  const best=[...teas].sort((a,b)=>b.rating-a.rating)[0];
+  const cnt={};teas.forEach(t=>{const id=warrior(t.rating).id;cnt[id]=(cnt[id]||0)+1});
   const big4=["7-Eleven","FamilyMart","Lawson","Ministop"];
   const B=[
-    ["🍵","Erster Schluck","1 Tee bewertet",n>=1],
+    ["🥷","Erster Schluck","1 Tee bewertet",n>=1],
     ["🏪","Konbini-Kenner","Alle 4 großen Konbinis",big4.every(s=>teas.some(t=>t.store===s))],
-    ["🌾","Mugicha-Märtyrer","Einen Mugicha unter 2 bewertet",teas.some(t=>t.type==="mugicha"&&t.rating<2)],
-    ["⛩️","Erleuchtung","Eine glatte 5 vergeben",teas.some(t=>t.rating>=5)],
+    ["👹","Dämonenjäger","Einen Oni besiegt (unter 2)",teas.some(t=>t.rating<2)],
+    ["👑","Yokozuna-Finder","Eine glatte 5 vergeben",teas.some(t=>t.rating>=5)],
     ["🌈","Sortenvielfalt","5 verschiedene Sorten",new Set(teas.map(t=>t.type)).size>=5],
     ["🤖","Automaten-Jäger","3 Tees aus dem 自販機",teas.filter(t=>t.store==="Automat").length>=3],
     ["📦","Pappkarton-Sommelier","„nach Pappe“ geschmeckt",teas.some(t=>(t.flavors||[]).includes("nach Pappe 📦"))],
     ["♨️","Winterseele","3 warme Tees",teas.filter(t=>t.temp==="warm").length>=3],
-    ["💴","Großinvestor","¥1.000 für Tee ausgegeben",spent>=1000],
+    ["💴","Großinvestor","¥1.000 für Tee",spent>=1000],
   ];
-  const bars=(arr,lab)=>arr.length?arr.slice(0,6).map(([k,a,c])=>`<div class="b"><div class="n">${esc(lab(k))}</div><div class="t"><div style="width:${a/5*100}%"></div></div><div class="s">${fmtR(a)}</div></div>`).join(""):`<div class="sub">Noch keine Daten</div>`;
+  const bars=(arr,lab)=>arr.length?arr.slice(0,6).map(([k,a])=>`<div class="b"><div class="n">${esc(lab(k))}</div><div class="t"><div style="width:${a/5*100}%"></div></div><div class="s">${fmtR(a)}</div></div>`).join(""):`<div class="sub">Noch keine Daten</div>`;
   return `
-  <h2>Dein Tee-Weg <span class="jp">茶道</span></h2>
-  <div class="card" style="margin-bottom:12px">
-    <div style="display:flex;justify-content:space-between;align-items:baseline"><div><span style="font-family:'Shippori Mincho';font-size:26px;font-weight:800;color:var(--shu)">${L[1]}</span> <span style="font-weight:700">${L[2]}</span></div><div class="sub">${N?`${N[0]-n} bis ${N[2]}`:"Maximum erreicht 🙏"}</div></div>
-    <div class="levelbar"><div style="width:${pct}%"></div></div>
+  <h2>Dein Dojo <span class="jp">道場</span></h2>
+  <div class="rankcard">${svg("ninja")}
+    <div class="lvjp">${L[2]} · RANG</div><div class="lv">${L[1]}</div><div style="font-weight:900;font-size:13px">${L[3]}</div>
+    <div class="bar"><div style="width:${pct}%"></div></div>
+    <div class="nx">${N?`Noch ${N[0]-n} Tee${N[0]-n===1?"":"s"} bis ${N[1]}`:"Höchster Rang erreicht. Respekt. 🙇"}</div>
   </div>
   <div class="stats">
     <div class="stat"><div class="v">${n}</div><div class="l">Tees probiert</div></div>
     <div class="stat"><div class="v">${n?fmtR(avg):"–"}</div><div class="l">Ø Bewertung</div></div>
     <div class="stat"><div class="v">¥${spent.toLocaleString("de-DE")}</div><div class="l">für Tee ausgegeben</div></div>
-    <div class="stat"><div class="v" style="font-size:18px;padding-top:6px">${topFl?esc(topFl[0]):"–"}</div><div class="l">häufigster Geschmack</div></div>
+    <div class="stat"><div class="v" style="font-size:18px">${topFl?esc(topFl[0]):"–"}</div><div class="l">häufigster Geschmack</div></div>
   </div>
-  ${best?`<h2>Champion <span class="jp">横綱</span></h2><div class="entry" data-id="${best.id}"><div class="rank r1">👑</div><div class="einfo"><div class="ename">${esc(displayName(best))}</div><div class="emeta">${fmtR(best.rating)} · ${esc(best.store||"")}</div></div></div>`:""}
-  <h2>Läden im Vergleich <span class="jp">店</span></h2><div class="card bars">${bars(byStore,k=>k)}</div>
-  <h2>Sorten im Vergleich <span class="jp">種類</span></h2><div class="card bars">${bars(byType,typeName)}</div>
-  <h2>Abzeichen <span class="jp">勲章</span></h2>
-  <div class="badges">${B.map(b=>`<div class="badge ${b[3]?"":"off"}"><span class="e">${b[0]}</span><b>${b[1]}</b><small>${b[2]}</small></div>`).join("")}</div>
-  <h2>Backup <span class="jp">保存</span></h2>
-  <div class="card"><div class="sub" style="margin-bottom:10px">Deine Tees liegen nur auf diesem iPhone. Sichere ab und zu ein Backup (z.B. in „Dateien“ oder per Mail an dich), dann geht nichts verloren.</div>
+  <h3>Deine Gegner</h3>
+  <div class="legend">${["oni","kabuki","ronin","samurai","sumo"].map(id=>{const w=warrior({oni:1,kabuki:2,ronin:3,samurai:4,sumo:5}[id]);return `<div>${svg(id)}${w.name}<br><span style="color:var(--lime);font-family:var(--disp);font-size:14px">${cnt[id]||0}×</span></div>`}).join("")}</div>
+  <h3>Läden im Vergleich</h3><div class="card bars">${bars(byStore,k=>k)}</div>
+  <h3>Sorten im Vergleich</h3><div class="card bars">${bars(byType,typeName)}</div>
+  <h3>Abzeichen</h3>
+  <div class="badges">${B.map(b=>`<div class="badge ${b[3]?"":"off"}"><span class="e">${b[0]}</span>${b[1]}<small>${b[2]}</small></div>`).join("")}</div>
+  <h3>Backup</h3>
+  <div class="card"><div class="sub" style="margin-bottom:12px">Deine Tees liegen nur auf diesem iPhone. Sichere ab und zu ein Backup (z.B. in „Dateien“ oder per Mail an dich).</div>
     <button class="btn" id="exp">💾 Backup sichern</button>
-    <label class="btn ghost" style="text-align:center">📂 Backup laden<input type="file" id="imp" accept=".json,application/json" style="display:none"></label></div>`;
+    <label class="btn ghost">📂 Backup laden<input type="file" id="imp" accept=".json,application/json" style="display:none"></label></div>`;
 }
-function bindStats(){document.getElementById("exp").onclick=exportBackup;document.getElementById("imp").onchange=e=>{const f=e.target.files[0];if(f)importBackup(f);e.target.value=""};document.querySelectorAll(".entry").forEach(e=>e.onclick=()=>showDetail(teas.find(t=>t.id===e.dataset.id)));}
+function bindStats(){document.getElementById("exp").onclick=exportBackup;document.getElementById("imp").onchange=e=>{const f=e.target.files[0];if(f)importBackup(f);e.target.value=""};}
 
-// ---------- Omikuji ----------
-const FORTUNES=[["大吉","Daikichi","Großes Glück"],["中吉","Chūkichi","Mittleres Glück"],["小吉","Shōkichi","Kleines Glück"],["吉","Kichi","Glück"],["末吉","Suekichi","Glück kommt noch"],["凶","Kyō","Pech – trink lieber Wasser"]];
+// ---------- Orakel ----------
+const FORTUNES=[["大吉","DAIKICHI","Großes Glück"],["中吉","CHŪKICHI","Mittleres Glück"],["小吉","SHŌKICHI","Kleines Glück"],["吉","KICHI","Glück"],["末吉","SUEKICHI","Glück kommt noch"],["凶","KYŌ","Pech – trink lieber Wasser"]];
 function drawOmikuji(){
   const tried=new Set(teas.map(t=>t.type));const untried=TYPES.filter(t=>t[0]!=="andere"&&!tried.has(t[0]));
   const f=FORTUNES[Math.floor(Math.random()*FORTUNES.length)];
   const stores=STORES.slice(0,6).map(s=>s[0]);const store=stores[Math.floor(Math.random()*stores.length)];
   const good=teas.filter(t=>t.rating>=4);
   let tip;
-  if(f[0]==="凶") tip=`Die Sterne sagen: Meide heute ${esc(store)}. Und alles mit „Mugi“ im Namen.`;
-  else if(untried.length&&Math.random()<.65){const u=untried[Math.floor(Math.random()*untried.length)];tip=`Probier heute einen <b>${u[1]} ${u[2]}</b> – am besten bei <b>${esc(store)}</b>.`}
-  else if(good.length){const g=good[Math.floor(Math.random()*good.length)];tip=`Gönn dir nochmal <b>${esc(displayName(g))}</b> (${fmtR(g.rating)}). Du hast es verdient.`}
-  else {const u=TYPES[Math.floor(Math.random()*(TYPES.length-1))];tip=`Heute ist ein guter Tag für <b>${u[1]} ${u[2]}</b> aus dem <b>${esc(store)}</b>.`}
-  const lucky=["Glücksfarbe: Matcha-Grün","Glückszahl: 138 (Yen)","Glücksrichtung: Kühlregal links","Glücksort: der Automat vor dem Bahnhof","Glücksbegleiter: ein Onigiri","Glückszeit: kurz vor Ladenschluss"];
+  if(f[0]==="凶") tip=`Der Ninja hat Böses gesehen: Meide heute <b>${esc(store)}</b>. Und alles mit „Mugi“ im Namen.`;
+  else if(untried.length&&Math.random()<.65){const u=untried[Math.floor(Math.random()*untried.length)];tip=`Deine Mission: <b>${u[1]} ${u[2]}</b>. Einsatzort: <b>${esc(store)}</b>. Lautlos rein, Tee raus.`}
+  else if(good.length){const g=good[Math.floor(Math.random()*good.length)];tip=`Hol dir nochmal <b>${esc(displayName(g))}</b> (${fmtR(g.rating)}). Ein Samurai kehrt zurück.`}
+  else {const u=TYPES[Math.floor(Math.random()*(TYPES.length-1))];tip=`Heute ist ein guter Tag für <b>${u[1]} ${u[2]}</b>. Einsatzort: <b>${esc(store)}</b>.`}
+  const lucky=["Glücksfarbe: Neon-Lime","Glückszahl: 138 Yen","Glücksrichtung: Kühlregal links unten","Glücksort: der Automat vor dem Bahnhof","Glücksbegleiter: ein Onigiri","Glückszeit: kurz vor Mitternacht","Glückswaffe: ein Strohhalm"];
   omikuji={f,tip,lucky:lucky[Math.floor(Math.random()*lucky.length)]};
 }
 function viewOmikuji(){
   return `
-  <h2>Tee-Omikuji <span class="jp">おみくじ</span></h2>
+  <h2>Ninja-Orakel <span class="jp">おみくじ</span></h2>
   <div class="card omi">
-    <div class="sub">Was trinkst du heute? Schüttel die Box und lass das Schicksal entscheiden.</div>
-    <div class="omibox" id="omibox">御神籤</div>
-    <button class="btn" id="draw">🎋 Los ziehen</button>
-    ${omikuji?`<div class="slip"><div class="fortune">${omikuji.f[0]}</div><div class="fde">${omikuji.f[1]} · ${omikuji.f[2]}</div><div>${omikuji.tip}</div><div class="sub" style="margin-top:10px">${omikuji.lucky}</div></div>`:""}
+    <div class="sub">Welcher Tee heute? Der Ninja wirft ein Los.</div>
+    <div class="ninja" id="ninja">${svg("ninja",true).replace("<svg","<svg style='border-radius:36px'")}</div>
+    <button class="btn" id="draw">🥷 Los werfen!</button>
+    ${omikuji?`<div class="slip ${omikuji.f[0]==="凶"?"bad":""}"><div class="fortune">${omikuji.f[0]}</div><div class="fde">${omikuji.f[1]} · ${omikuji.f[2]}</div><div class="tip">${omikuji.tip}</div><div class="luck">${omikuji.lucky}</div></div>`:""}
   </div>`;
 }
 function bindOmikuji(){
-  document.getElementById("draw").onclick=()=>{const b=document.getElementById("omibox");b.classList.remove("shake");void b.offsetWidth;b.classList.add("shake");
-    setTimeout(()=>{drawOmikuji();render()},1000)};
+  document.getElementById("draw").onclick=()=>{const n=document.getElementById("ninja");n.classList.remove("throw");void n.offsetWidth;n.classList.add("throw");buzz([10,60,20]);
+    setTimeout(()=>{drawOmikuji();render()},900)};
 }
-
-function bind(){({new:bindNew,rank:bindRank,stats:bindStats,omikuji:bindOmikuji})[view]();}
 
 // ---------- Overlays ----------
 function overlay(html){const l=document.getElementById("layer");l.innerHTML=`<div class="overlay" id="ov">${html}</div>`;
   document.getElementById("ov").onclick=e=>{if(e.target.id==="ov")closeOverlay()};}
 function closeOverlay(){document.getElementById("layer").innerHTML=""}
-function stamp(r,done){const v=verdict(r);overlay(`<div class="stampbig"><div><b style="${v.k.length>1?"font-size:40px":""}">${v.k}</b><i>${v.d} · ${fmtR(r)}</i></div></div>`);
-  if(navigator.vibrate)try{navigator.vibrate([20,40,30])}catch(e){}
-  setTimeout(()=>{closeOverlay();done&&done()},1300);}
-function confirmBox(msg,yes){overlay(`<div class="dialog"><p>${esc(msg)}</p><button class="btn" id="c-yes" style="background:var(--shu);box-shadow:0 3px 0 #7d2a1b">Ja, löschen</button><button class="btn ghost" id="c-no">Abbrechen</button></div>`);
+function reveal(r,done){
+  const w=warrior(r);const l=document.getElementById("layer");
+  const big=r>=4;
+  l.innerHTML=`<div class="reveal ${r<2||r>=5?"shake":""}" id="rv" style="background:${w.bg};--lc:${w.lc}"><div class="lines"></div>
+    <div class="core">${svg(w.id)}<div class="big" style="color:${w.tc}">${w.shout}</div>
+    <div class="sm" style="color:${big?"#0d0f0c":"var(--tx2)"}">${w.name.toUpperCase()} · ${w.jp} · ${fmtR(r)}</div></div></div>`;
+  buzz(r>=5?[30,50,30,50,80]:r<2?[80,40,80]:[25,40,25]);
+  let closed=false;const fin=()=>{if(closed)return;closed=true;l.innerHTML="";done&&done()};
+  document.getElementById("rv").onclick=fin; setTimeout(fin,1900);
+}
+function confirmBox(msg,yes){overlay(`<div class="dialog" style="text-align:center">${svg("oni")}<p style="font-weight:900;margin:6px 0 16px">${esc(msg)}</p><button class="btn" id="c-yes" style="background:var(--red);box-shadow:0 5px 0 #8a1f2a;color:#fff">Ja, löschen</button><button class="btn ghost" id="c-no">Abbrechen</button></div>`);
+  document.querySelector(".dialog svg").style.cssText="width:90px;height:90px";
   document.getElementById("c-yes").onclick=()=>{closeOverlay();yes()};document.getElementById("c-no").onclick=closeOverlay;}
 let tt;function toast(m){document.querySelectorAll(".toast").forEach(t=>t.remove());const t=document.createElement("div");t.className="toast";t.textContent=m;document.body.appendChild(t);clearTimeout(tt);tt=setTimeout(()=>t.remove(),2200)}
 
