@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Umacha">
@@ -22,7 +22,9 @@
   --safe-t:env(safe-area-inset-top,0px); --safe-b:env(safe-area-inset-bottom,0px);
   --disp:"Dela Gothic One","Zen Kaku Gothic New",system-ui,sans-serif;
 }
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+html{-webkit-text-size-adjust:100%}
+input,textarea{font-size:16px!important}
 html,body{margin:0;background:var(--bg);color:var(--tx);font-family:"Zen Kaku Gothic New",system-ui,sans-serif;font-weight:500;font-size:16px;-webkit-font-smoothing:antialiased}
 body{min-height:100vh;background:
   radial-gradient(600px 300px at 110% -5%, rgba(166,255,77,.16), transparent 70%),
@@ -532,6 +534,8 @@ function confirmBox(msg,yes){overlay(`<div class="dialog" style="text-align:cent
   document.getElementById("c-yes").onclick=()=>{closeOverlay();yes()};document.getElementById("c-no").onclick=closeOverlay;}
 let tt;function toast(m){document.querySelectorAll(".toast").forEach(t=>t.remove());const t=document.createElement("div");t.className="toast";t.textContent=m;document.body.appendChild(t);clearTimeout(tt);tt=setTimeout(()=>t.remove(),2200)}
 
+document.addEventListener('gesturestart',e=>e.preventDefault());
+let lastT=0;document.addEventListener('touchend',e=>{const n=Date.now();if(n-lastT<300&&!e.target.closest('input,textarea'))e.preventDefault();lastT=n},{passive:false});
 initStore();
 if('serviceWorker' in navigator)window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js',{updateViaCache:'none'}).then(r=>{r.update();document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')r.update()})}).catch(()=>{});
   let reloaded=false;navigator.serviceWorker.addEventListener('controllerchange',()=>{if(reloaded)return;reloaded=true;if(view!=='new'||step===0)location.reload()});});
